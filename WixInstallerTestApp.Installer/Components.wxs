@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+
+    <!-- Product Components -->
+    <ComponentGroup Id="ProductComponents">
+      <!-- Test file -->
+      <ComponentRef Id="TestFile"/>
+
+    </ComponentGroup>
+
+    <!-- Install files -->
+    <DirectoryRef Id="INSTALLFOLDER" FileSource="..\WixInstallerTestApp\bin\Debug\">
+      <Component Id="TestFile" Guid="{6DBB1557-D4C3-4B7B-9691-8E71DB1381CB}" >
+        <File Id="FileTestFile" Name="WixInstallerTestApp.exe" KeyPath="yes" />
+
+        <!-- Remove start menu items -->
+        <RemoveFolder Id="RemoveStartMenu" Directory="InstallProgramMenuFolder" On="uninstall"/>
+      </Component>
+    </DirectoryRef>
+
+  </Fragment>
+
+</Wix>
